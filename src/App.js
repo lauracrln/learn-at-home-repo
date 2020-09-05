@@ -12,9 +12,15 @@ const Profile = (props) => {
   //setIsFollowed itufunction untuk mengubah statenya 
   const posts = [...Array(0)];
   const postCount = 0;
+  const [inputAccount, setInputAccount] = useState("");
 
   return (
     <React.Fragment>
+      <input onChange={({target: {value} }) => {
+        setInputAccount(value); 
+        }}
+         placeholder="search profile"></input>
+      <div>Search Result for account: {inputAccount}</div>
       <img src="https://via.placeholder.com/100" alt="profile picture" />
       <div>@{props.username}</div>
       <button onClick={() => setIsFollowed(!isFollowed)}>{isFollowed ? "Unfollow" : "Follow"}</button>
