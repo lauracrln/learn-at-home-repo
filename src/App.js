@@ -10,8 +10,9 @@ const Profile = (props) => {
   const [isFollowed, setIsFollowed] = useState(false);
   //bakal balikin isfollowed(statenya) sama setter (setisfollowed), state itu read only, makanya kalo mau rubah value di setternya. 
   //setIsFollowed itufunction untuk mengubah statenya 
-  const posts = [...Array(0)];
-  const postCount = 0;
+  const postCount = 11;
+  const posts = [...Array(postCount)];
+  
   const [inputAccount, setInputAccount] = useState("");
 
   return (
@@ -31,9 +32,11 @@ const Profile = (props) => {
       {postCount === 0 ? (
         <div>No Post</div>
       ) : (
-        posts.map((_,idx) => (
-          <Post src ="https://via.placeholder.com/100" key={idx} />
-        ))
+        <div className="posts">
+          {posts.map((_,idx) => (
+          <Post src ="https://via.placeholder.com/100" key={idx} className="post"/>
+        ))}
+        </div>
       )}
     </React.Fragment>
     );
